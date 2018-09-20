@@ -1,0 +1,25 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bubbleSort.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasyl-n/algorithms.git"
+  },
+  "keywords": [
+    "algorithms"
+  ],
+  "author": "Vasyl Nesterenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vasyl-n/algorithms/issues"
+  },
+  "homepage": "https://github.com/vasyl-n/algorithms#readme",
+  "dependencies": {
+    "jest": "^23.6.0"
+  }
+}
