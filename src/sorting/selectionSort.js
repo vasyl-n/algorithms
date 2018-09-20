@@ -11,7 +11,7 @@ const selectionSort = (arr) => {
 
   return arr
 }
-[2,1,4,3]
+
 const swap = (a, b, arr) => {
   let temp = arr[a];
   arr[a] = arr[b];
