@@ -9,15 +9,29 @@ const Node = function(value) {
 }
 
 LinkedList.prototype.addToTail = function(value) {
-  v
+  const node = new Node(value);
+  if ( this.head === null && this.tail === null ) {
+    this.head = node;
+    this.tail = node;
+  } else {
+    this.tail.next = node;
+    this.tail = node;
+  }
 }
 
 LinkedList.prototype.removeHead = function() {
-
+  this.head = this.head.next;
 }
 
-LinkedList.prototype.contains = function(value) {
-
+LinkedList.prototype.contains = function(target) {
+  let node = this.head;
+  while( node !== null ) {
+    if( node.value === target ) {
+      return true;
+    }
+    node = node.next;
+  }
+  return false;
 }
 
 module.exports.LinkedList = LinkedList;

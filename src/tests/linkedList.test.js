@@ -25,6 +25,8 @@ test('adds things to tail', () => {
   list.addToTail(6)
   expect(list.head.value).toEqual(4);
   expect(list.tail.value).toEqual(6);
+  list.addToTail(7)
+  expect(list.head.next.next.next.value).toEqual(7);
 })
 
 test('removes head', () => {
@@ -35,5 +37,15 @@ test('removes head', () => {
   expect(list.tail.value).toEqual(5);
   list.removeHead()
   expect(list.head.value).toEqual(5);
-  expect(list.tail.value).toEqual(6);
+  expect(list.tail.value).toEqual(5);
+})
+
+test('contains', () => {
+  var list = new LinkedList();
+  list.addToTail(4);
+  list.addToTail(5);
+  expect(list.contains(4)).toBe(true)
+  expect(list.contains(6)).toBe(false)
+  list.addToTail(6)
+  expect(list.contains(6)).toBe(true)
 })
