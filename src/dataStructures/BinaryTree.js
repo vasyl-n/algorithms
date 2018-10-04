@@ -25,11 +25,10 @@ BinaryTree.prototype.insert = function(value) {
   return newTree;
 }
 
-BinaryTree.prototype.DF = function(root, cb){
+BinaryTree.prototype.inorder = function(root, cb){
   let stack = [];
   let done = false;
   let node = root;
-  debugger
   while ( !done ) {
     if ( node !== null ) {
       stack.push(node);
@@ -39,6 +38,26 @@ BinaryTree.prototype.DF = function(root, cb){
         node = stack.pop();
         cb(node)
         node = node.right;
+      } else {
+        done = true;
+      }
+    }
+  }
+}
+
+BinaryTree.prototype.DF = function(root, cb) {
+  let stack = [];
+  let done = false;
+  node = root;
+  while ( !done ) {
+    if ( node !== null ) {
+      cb(node);
+      stack.push(node);
+      node = node.left;
+    } else {
+      if ( stack.length > 0 ) {
+        var n = stack.pop();
+        node = n.right;
       } else {
         done = true;
       }
@@ -56,4 +75,5 @@ a.insert(6)
 a.insert(8)
 
 
-a.DF(a, (n) => console.log(n.value))
+a.inorder(a, (n) => console.log(n.value));
+a.DF(a, (n) => console.log(n.value));
