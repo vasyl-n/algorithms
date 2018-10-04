@@ -65,6 +65,17 @@ BinaryTree.prototype.DF = function(root, cb) {
   }
 }
 
+BinaryTree.prototype.BF = function(root, cb) {
+  let queue = [root];
+  node = root;
+  while ( queue.length > 0 ) {
+    var el = queue.shift();
+    cb(el);
+    el.left && queue.push(el.left);
+    el.right && queue.push(el.right)
+  }
+}
+
 
 var a = new BinaryTree(5)
 a.insert(2)
@@ -75,5 +86,6 @@ a.insert(6)
 a.insert(8)
 
 
-a.inorder(a, (n) => console.log(n.value));
-a.DF(a, (n) => console.log(n.value));
+// a.inorder(a, (n) => console.log(n.value));
+// a.DF(a, (n) => console.log(n.value));
+a.BF(a, (n) => console.log(n.value));
